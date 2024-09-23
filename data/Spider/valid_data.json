@@ -1,0 +1,401 @@
+[{
+	"code": "SELECT count(*) FROM singer",
+	"text": "How many singers do we have?",
+	"id": 1
+}, {
+	"code": "SELECT count(*) FROM singer",
+	"text": "What is the total number of singers?",
+	"id": 2
+}, {
+	"code": "SELECT name ,  country ,  age FROM singer ORDER BY age DESC",
+	"text": "Show name, country, age for all singers ordered by age from the oldest to the youngest.",
+	"id": 3
+}, {
+	"code": "SELECT name ,  country ,  age FROM singer ORDER BY age DESC",
+	"text": "What are the names, countries, and ages for every singer in descending order of age?",
+	"id": 4
+}, {
+	"code": "SELECT avg(age) ,  min(age) ,  max(age) FROM singer WHERE country  =  'France'",
+	"text": "What is the average, minimum, and maximum age of all singers from France?",
+	"id": 5
+}, {
+	"code": "SELECT avg(age) ,  min(age) ,  max(age) FROM singer WHERE country  =  'France'",
+	"text": "What is the average, minimum, and maximum age for all French singers?",
+	"id": 6
+}, {
+	"code": "SELECT song_name ,  song_release_year FROM singer ORDER BY age LIMIT 1",
+	"text": "Show the name and the release year of the song by the youngest singer.",
+	"id": 7
+}, {
+	"code": "SELECT song_name ,  song_release_year FROM singer ORDER BY age LIMIT 1",
+	"text": "What are the names and release years for all the songs of the youngest singer?",
+	"id": 8
+}, {
+	"code": "SELECT DISTINCT country FROM singer WHERE age  >  20",
+	"text": "What are all distinct countries where singers above age 20 are from?",
+	"id": 9
+}, {
+	"code": "SELECT DISTINCT country FROM singer WHERE age  >  20",
+	"text": "What are  the different countries with singers above age 20?",
+	"id": 10
+}, {
+	"code": "SELECT country ,  count(*) FROM singer GROUP BY country",
+	"text": "Show all countries and the number of singers in each country.",
+	"id": 11
+}, {
+	"code": "SELECT country ,  count(*) FROM singer GROUP BY country",
+	"text": "How many singers are from each country?",
+	"id": 12
+}, {
+	"code": "SELECT song_name FROM singer WHERE age  >  (SELECT avg(age) FROM singer)",
+	"text": "List all song names by singers above the average age.",
+	"id": 13
+}, {
+	"code": "SELECT song_name FROM singer WHERE age  >  (SELECT avg(age) FROM singer)",
+	"text": "What are all the song names by singers who are older than average?",
+	"id": 14
+}, {
+	"code": "SELECT LOCATION ,  name FROM stadium WHERE capacity BETWEEN 5000 AND 10000",
+	"text": "Show location and name for all stadiums with a capacity between 5000 and 10000.",
+	"id": 15
+}, {
+	"code": "SELECT LOCATION ,  name FROM stadium WHERE capacity BETWEEN 5000 AND 10000",
+	"text": "What are the locations and names of all stations with capacity between 5000 and 10000?",
+	"id": 16
+}, {
+	"code": "select max(capacity), average from stadium",
+	"text": "What is the maximum capacity and the average of all stadiums ?",
+	"id": 17
+}, {
+	"code": "select avg(capacity) ,  max(capacity) from stadium",
+	"text": "What is the average and maximum capacities for all stadiums ?",
+	"id": 18
+}, {
+	"code": "SELECT name ,  capacity FROM stadium ORDER BY average DESC LIMIT 1",
+	"text": "What is the name and capacity for the stadium with highest average attendance?",
+	"id": 19
+}, {
+	"code": "SELECT name ,  capacity FROM stadium ORDER BY average DESC LIMIT 1",
+	"text": "What is the name and capacity for the stadium with the highest average attendance?",
+	"id": 20
+}, {
+	"code": "SELECT count(*) FROM concert WHERE YEAR  =  2014 OR YEAR  =  2015",
+	"text": "How many concerts are there in year 2014 or 2015?",
+	"id": 21
+}, {
+	"code": "SELECT count(*) FROM concert WHERE YEAR  =  2014 OR YEAR  =  2015",
+	"text": "How many concerts occurred in 2014 or 2015?",
+	"id": 22
+}, {
+	"code": "SELECT T2.name ,  count(*) FROM concert AS T1 JOIN stadium AS T2 ON T1.stadium_id  =  T2.stadium_id GROUP BY T1.stadium_id",
+	"text": "Show the stadium name and the number of concerts in each stadium.",
+	"id": 23
+}, {
+	"code": "SELECT T2.name ,  count(*) FROM concert AS T1 JOIN stadium AS T2 ON T1.stadium_id  =  T2.stadium_id GROUP BY T1.stadium_id",
+	"text": "For each stadium, how many concerts play there?",
+	"id": 24
+}, {
+	"code": "SELECT T2.name ,  T2.capacity FROM concert AS T1 JOIN stadium AS T2 ON T1.stadium_id  =  T2.stadium_id WHERE T1.year  >=  2014 GROUP BY T2.stadium_id ORDER BY count(*) DESC LIMIT 1",
+	"text": "Show the stadium name and capacity with most number of concerts in year 2014 or after.",
+	"id": 25
+}, {
+	"code": "select t2.name ,  t2.capacity from concert as t1 join stadium as t2 on t1.stadium_id  =  t2.stadium_id where t1.year  >  2013 group by t2.stadium_id order by count(*) desc limit 1",
+	"text": "What is the name and capacity of the stadium with the most concerts after 2013 ?",
+	"id": 26
+}, {
+	"code": "SELECT YEAR FROM concert GROUP BY YEAR ORDER BY count(*) DESC LIMIT 1",
+	"text": "Which year has most number of concerts?",
+	"id": 27
+}, {
+	"code": "SELECT YEAR FROM concert GROUP BY YEAR ORDER BY count(*) DESC LIMIT 1",
+	"text": "What is the year that had the most concerts?",
+	"id": 28
+}, {
+	"code": "SELECT name FROM stadium WHERE stadium_id NOT IN (SELECT stadium_id FROM concert)",
+	"text": "Show the stadium names without any concert.",
+	"id": 29
+}, {
+	"code": "SELECT name FROM stadium WHERE stadium_id NOT IN (SELECT stadium_id FROM concert)",
+	"text": "What are the names of the stadiums without any concerts?",
+	"id": 30
+}, {
+	"code": "SELECT country FROM singer WHERE age  >  40 INTERSECT SELECT country FROM singer WHERE age  <  30",
+	"text": "Show countries where a singer above age 40 and a singer below 30 are from.",
+	"id": 31
+}, {
+	"code": "SELECT name FROM stadium EXCEPT SELECT T2.name FROM concert AS T1 JOIN stadium AS T2 ON T1.stadium_id  =  T2.stadium_id WHERE T1.year  =  2014",
+	"text": "Show names for all stadiums except for stadiums having a concert in year 2014.",
+	"id": 32
+}, {
+	"code": "SELECT name FROM stadium EXCEPT SELECT T2.name FROM concert AS T1 JOIN stadium AS T2 ON T1.stadium_id  =  T2.stadium_id WHERE T1.year  =  2014",
+	"text": "What are the names of all stadiums that did not have a concert in 2014?",
+	"id": 33
+}, {
+	"code": "SELECT T2.concert_name ,  T2.theme ,  count(*) FROM singer_in_concert AS T1 JOIN concert AS T2 ON T1.concert_id  =  T2.concert_id GROUP BY T2.concert_id",
+	"text": "Show the name and theme for all concerts and the number of singers in each concert.",
+	"id": 34
+}, {
+	"code": "select t2.concert_name ,  t2.theme ,  count(*) from singer_in_concert as t1 join concert as t2 on t1.concert_id  =  t2.concert_id group by t2.concert_id",
+	"text": "What are the names , themes , and number of singers for every concert ?",
+	"id": 35
+}, {
+	"code": "SELECT T2.name ,  count(*) FROM singer_in_concert AS T1 JOIN singer AS T2 ON T1.singer_id  =  T2.singer_id GROUP BY T2.singer_id",
+	"text": "List singer names and number of concerts for each singer.",
+	"id": 36
+}, {
+	"code": "SELECT T2.name ,  count(*) FROM singer_in_concert AS T1 JOIN singer AS T2 ON T1.singer_id  =  T2.singer_id GROUP BY T2.singer_id",
+	"text": "What are the names of the singers and number of concerts for each person?",
+	"id": 37
+}, {
+	"code": "SELECT T2.name FROM singer_in_concert AS T1 JOIN singer AS T2 ON T1.singer_id  =  T2.singer_id JOIN concert AS T3 ON T1.concert_id  =  T3.concert_id WHERE T3.year  =  2014",
+	"text": "List all singer names in concerts in year 2014.",
+	"id": 38
+}, {
+	"code": "SELECT T2.name FROM singer_in_concert AS T1 JOIN singer AS T2 ON T1.singer_id  =  T2.singer_id JOIN concert AS T3 ON T1.concert_id  =  T3.concert_id WHERE T3.year  =  2014",
+	"text": "What are the names of the singers who performed in a concert in 2014?",
+	"id": 39
+}, {
+	"code": "SELECT name ,  country FROM singer WHERE song_name LIKE '%Hey%'",
+	"text": "what is the name and nation of the singer who have a song having 'Hey' in its name?",
+	"id": 40
+}, {
+	"code": "SELECT name ,  country FROM singer WHERE song_name LIKE '%Hey%'",
+	"text": "What is the name and country of origin of every singer who has a song with the word 'Hey' in its title?",
+	"id": 41
+}, {
+	"code": "SELECT T2.name ,  T2.location FROM concert AS T1 JOIN stadium AS T2 ON T1.stadium_id  =  T2.stadium_id WHERE T1.Year  =  2014 INTERSECT SELECT T2.name ,  T2.location FROM concert AS T1 JOIN stadium AS T2 ON T1.stadium_id  =  T2.stadium_id WHERE T1.Year  =  2015",
+	"text": "Find the name and location of the stadiums which some concerts happened in the years of both 2014 and 2015.",
+	"id": 42
+}, {
+	"code": "SELECT T2.name ,  T2.location FROM concert AS T1 JOIN stadium AS T2 ON T1.stadium_id  =  T2.stadium_id WHERE T1.Year  =  2014 INTERSECT SELECT T2.name ,  T2.location FROM concert AS T1 JOIN stadium AS T2 ON T1.stadium_id  =  T2.stadium_id WHERE T1.Year  =  2015",
+	"text": "What are the names and locations of the stadiums that had concerts that occurred in both 2014 and 2015?",
+	"id": 43
+}, {
+	"code": "select count(*) from concert where stadium_id = (select stadium_id from stadium order by capacity desc limit 1)",
+	"text": "Find the number of concerts happened in the stadium with the highest capacity .",
+	"id": 44
+}, {
+	"code": "select count(*) from concert where stadium_id = (select stadium_id from stadium order by capacity desc limit 1)",
+	"text": "What are the number of concerts that occurred in the stadium with the largest capacity ?",
+	"id": 45
+}, {
+	"code": "SELECT count(*) FROM pets WHERE weight  >  10",
+	"text": "Find the number of pets whose weight is heavier than 10.",
+	"id": 46
+}, {
+	"code": "SELECT count(*) FROM pets WHERE weight  >  10",
+	"text": "How many pets have a greater weight than 10?",
+	"id": 47
+}, {
+	"code": "SELECT weight FROM pets ORDER BY pet_age LIMIT 1",
+	"text": "Find the weight of the youngest dog.",
+	"id": 48
+}, {
+	"code": "SELECT weight FROM pets ORDER BY pet_age LIMIT 1",
+	"text": "How much does the youngest dog weigh?",
+	"id": 49
+}, {
+	"code": "SELECT max(weight) ,  petType FROM pets GROUP BY petType",
+	"text": "Find the maximum weight for each type of pet. List the maximum weight and pet type.",
+	"id": 50
+}, {
+	"code": "SELECT max(weight) ,  petType FROM pets GROUP BY petType",
+	"text": "List the maximum weight and type for each type of pet.",
+	"id": 51
+}, {
+	"code": "SELECT count(*) FROM student AS T1 JOIN has_pet AS T2 ON T1.stuid  =  T2.stuid WHERE T1.age  >  20",
+	"text": "Find number of pets owned by students who are older than 20.",
+	"id": 52
+}, {
+	"code": "SELECT count(*) FROM student AS T1 JOIN has_pet AS T2 ON T1.stuid  =  T2.stuid WHERE T1.age  >  20",
+	"text": "How many pets are owned by students that have an age greater than 20?",
+	"id": 53
+}, {
+	"code": "SELECT count(*) FROM student AS T1 JOIN has_pet AS T2 ON T1.stuid  =  T2.stuid JOIN pets AS T3 ON T2.petid  =  T3.petid WHERE T1.sex  =  'F' AND T3.pettype  =  'dog'",
+	"text": "Find the number of dog pets that are raised by female students (with sex F).",
+	"id": 54
+}, {
+	"code": "SELECT count(*) FROM student AS T1 JOIN has_pet AS T2 ON T1.stuid  =  T2.stuid JOIN pets AS T3 ON T2.petid  =  T3.petid WHERE T1.sex  =  'F' AND T3.pettype  =  'dog'",
+	"text": "How many dog pets are raised by female students?",
+	"id": 55
+}, {
+	"code": "SELECT count(DISTINCT pettype) FROM pets",
+	"text": "Find the number of distinct type of pets.",
+	"id": 56
+}, {
+	"code": "SELECT count(DISTINCT pettype) FROM pets",
+	"text": "How many different types of pet are there?",
+	"id": 57
+}, {
+	"code": "SELECT DISTINCT T1.Fname FROM student AS T1 JOIN has_pet AS T2 ON T1.stuid  =  T2.stuid JOIN pets AS T3 ON T3.petid  =  T2.petid WHERE T3.pettype  =  'cat' OR T3.pettype  =  'dog'",
+	"text": "Find the first name of students who have cat or dog pet.",
+	"id": 58
+}, {
+	"code": "SELECT DISTINCT T1.Fname FROM student AS T1 JOIN has_pet AS T2 ON T1.stuid  =  T2.stuid JOIN pets AS T3 ON T3.petid  =  T2.petid WHERE T3.pettype  =  'cat' OR T3.pettype  =  'dog'",
+	"text": "What are the first names of every student who has a cat or dog as a pet?",
+	"id": 59
+}, {
+	"code": "select t1.fname from student as t1 join has_pet as t2 on t1.stuid  =  t2.stuid join pets as t3 on t3.petid  =  t2.petid where t3.pettype  =  'cat' intersect select t1.fname from student as t1 join has_pet as t2 on t1.stuid  =  t2.stuid join pets as t3 on t3.petid  =  t2.petid where t3.pettype  =  'dog'",
+	"text": "Find the first name of students who have both cat and dog pets .",
+	"id": 60
+}, {
+	"code": "SELECT T1.Fname FROM student AS T1 JOIN has_pet AS T2 ON T1.stuid  =  T2.stuid JOIN pets AS T3 ON T3.petid  =  T2.petid WHERE T3.pettype  =  'cat' INTERSECT SELECT T1.Fname FROM student AS T1 JOIN has_pet AS T2 ON T1.stuid  =  T2.stuid JOIN pets AS T3 ON T3.petid  =  T2.petid WHERE T3.pettype  =  'dog'",
+	"text": "What are the students' first names who have both cats and dogs as pets?",
+	"id": 61
+}, {
+	"code": "SELECT major ,  age FROM student WHERE stuid NOT IN (SELECT T1.stuid FROM student AS T1 JOIN has_pet AS T2 ON T1.stuid  =  T2.stuid JOIN pets AS T3 ON T3.petid  =  T2.petid WHERE T3.pettype  =  'cat')",
+	"text": "Find the major and age of students who do not have a cat pet.",
+	"id": 62
+}, {
+	"code": "SELECT major ,  age FROM student WHERE stuid NOT IN (SELECT T1.stuid FROM student AS T1 JOIN has_pet AS T2 ON T1.stuid  =  T2.stuid JOIN pets AS T3 ON T3.petid  =  T2.petid WHERE T3.pettype  =  'cat')",
+	"text": "What major is every student who does not own a cat as a pet, and also how old are they?",
+	"id": 63
+}, {
+	"code": "SELECT stuid FROM student EXCEPT SELECT T1.stuid FROM student AS T1 JOIN has_pet AS T2 ON T1.stuid  =  T2.stuid JOIN pets AS T3 ON T3.petid  =  T2.petid WHERE T3.pettype  =  'cat'",
+	"text": "Find the id of students who do not have a cat pet.",
+	"id": 64
+}, {
+	"code": "SELECT stuid FROM student EXCEPT SELECT T1.stuid FROM student AS T1 JOIN has_pet AS T2 ON T1.stuid  =  T2.stuid JOIN pets AS T3 ON T3.petid  =  T2.petid WHERE T3.pettype  =  'cat'",
+	"text": "What are the ids of the students who do not own cats as pets?",
+	"id": 65
+}, {
+	"code": "SELECT T1.fname ,  T1.age FROM student AS T1 JOIN has_pet AS T2 ON T1.stuid  =  T2.stuid JOIN pets AS T3 ON T3.petid  =  T2.petid WHERE T3.pettype  =  'dog' AND T1.stuid NOT IN (SELECT T1.stuid FROM student AS T1 JOIN has_pet AS T2 ON T1.stuid  =  T2.stuid JOIN pets AS T3 ON T3.petid  =  T2.petid WHERE T3.pettype  =  'cat')",
+	"text": "Find the first name and age of students who have a dog but do not have a cat as a pet.",
+	"id": 66
+}, {
+	"code": "SELECT T1.fname ,  T1.age FROM student AS T1 JOIN has_pet AS T2 ON T1.stuid  =  T2.stuid JOIN pets AS T3 ON T3.petid  =  T2.petid WHERE T3.pettype  =  'dog' AND T1.stuid NOT IN (SELECT T1.stuid FROM student AS T1 JOIN has_pet AS T2 ON T1.stuid  =  T2.stuid JOIN pets AS T3 ON T3.petid  =  T2.petid WHERE T3.pettype  =  'cat')",
+	"text": "What is the first name of every student who has a dog but does not have a cat?",
+	"id": 67
+}, {
+	"code": "SELECT pettype ,  weight FROM pets ORDER BY pet_age LIMIT 1",
+	"text": "Find the type and weight of the youngest pet.",
+	"id": 68
+}, {
+	"code": "SELECT pettype ,  weight FROM pets ORDER BY pet_age LIMIT 1",
+	"text": "What type of pet is the youngest animal, and how much does it weigh?",
+	"id": 69
+}, {
+	"code": "SELECT petid ,  weight FROM pets WHERE pet_age  >  1",
+	"text": "Find the id and weight of all pets whose age is older than 1.",
+	"id": 70
+}, {
+	"code": "SELECT petid ,  weight FROM pets WHERE pet_age  >  1",
+	"text": "What is the id and weight of every pet who is older than 1?",
+	"id": 71
+}, {
+	"code": "SELECT avg(pet_age) ,  max(pet_age) ,  pettype FROM pets GROUP BY pettype",
+	"text": "Find the average and maximum age for each type of pet.",
+	"id": 72
+}, {
+	"code": "SELECT avg(pet_age) ,  max(pet_age) ,  pettype FROM pets GROUP BY pettype",
+	"text": "What is the average and maximum age for each pet type?",
+	"id": 73
+}, {
+	"code": "SELECT avg(weight) ,  pettype FROM pets GROUP BY pettype",
+	"text": "Find the average weight for each pet type.",
+	"id": 74
+}, {
+	"code": "SELECT avg(weight) ,  pettype FROM pets GROUP BY pettype",
+	"text": "What is the average weight for each type of pet?",
+	"id": 75
+}, {
+	"code": "SELECT DISTINCT T1.fname ,  T1.age FROM student AS T1 JOIN has_pet AS T2 ON T1.stuid  =  T2.stuid",
+	"text": "Find the first name and age of students who have a pet.",
+	"id": 76
+}, {
+	"code": "SELECT DISTINCT T1.fname ,  T1.age FROM student AS T1 JOIN has_pet AS T2 ON T1.stuid  =  T2.stuid",
+	"text": "What are the different first names and ages of the students who do have pets?",
+	"id": 77
+}, {
+	"code": "SELECT T2.petid FROM student AS T1 JOIN has_pet AS T2 ON T1.stuid  =  T2.stuid WHERE T1.Lname  =  'Smith'",
+	"text": "Find the id of the pet owned by student whose last name is \u2018Smith\u2019.",
+	"id": 78
+}, {
+	"code": "SELECT T2.petid FROM student AS T1 JOIN has_pet AS T2 ON T1.stuid  =  T2.stuid WHERE T1.Lname  =  'Smith'",
+	"text": "What is the id of the pet owned by the student whose last name is 'Smith'?",
+	"id": 79
+}, {
+	"code": "SELECT count(*) ,  T1.stuid FROM student AS T1 JOIN has_pet AS T2 ON T1.stuid  =  T2.stuid GROUP BY T1.stuid",
+	"text": "Find the number of pets for each student who has any pet and student id.",
+	"id": 80
+}, {
+	"code": "select count(*) ,  t1.stuid from student as t1 join has_pet as t2 on t1.stuid  =  t2.stuid group by t1.stuid",
+	"text": "For students who have pets , how many pets does each student have ? list their ids instead of names .",
+	"id": 81
+}, {
+	"code": "SELECT T1.fname ,  T1.sex FROM student AS T1 JOIN has_pet AS T2 ON T1.stuid  =  T2.stuid GROUP BY T1.stuid HAVING count(*)  >  1",
+	"text": "Find the first name and gender of student who have more than one pet.",
+	"id": 82
+}, {
+	"code": "SELECT T1.fname ,  T1.sex FROM student AS T1 JOIN has_pet AS T2 ON T1.stuid  =  T2.stuid GROUP BY T1.stuid HAVING count(*)  >  1",
+	"text": "What is the first name and gender of the all the students who have more than one pet?",
+	"id": 83
+}, {
+	"code": "SELECT T1.lname FROM student AS T1 JOIN has_pet AS T2 ON T1.stuid  =  T2.stuid JOIN pets AS T3 ON T3.petid  =  T2.petid WHERE T3.pet_age  =  3 AND T3.pettype  =  'cat'",
+	"text": "Find the last name of the student who has a cat that is age 3.",
+	"id": 84
+}, {
+	"code": "SELECT T1.lname FROM student AS T1 JOIN has_pet AS T2 ON T1.stuid  =  T2.stuid JOIN pets AS T3 ON T3.petid  =  T2.petid WHERE T3.pet_age  =  3 AND T3.pettype  =  'cat'",
+	"text": "What is the last name of the student who has a cat that is 3 years old?",
+	"id": 85
+}, {
+	"code": "select avg(age) from student where stuid not in (select stuid from has_pet)",
+	"text": "Find the average age of students who do not have any pet .",
+	"id": 86
+}, {
+	"code": "select avg(age) from student where stuid not in (select stuid from has_pet)",
+	"text": "What is the average age for all students who do not own any pets ?",
+	"id": 87
+}, {
+	"code": "SELECT count(*) FROM CONTINENTS;",
+	"text": "How many continents are there?",
+	"id": 88
+}, {
+	"code": "SELECT count(*) FROM CONTINENTS;",
+	"text": "What is the number of continents?",
+	"id": 89
+}, {
+	"code": "SELECT T1.ContId ,  T1.Continent ,  count(*) FROM CONTINENTS AS T1 JOIN COUNTRIES AS T2 ON T1.ContId  =  T2.Continent GROUP BY T1.ContId;",
+	"text": "How many countries does each continent have? List the continent id, continent name and the number of countries.",
+	"id": 90
+}, {
+	"code": "SELECT T1.ContId ,  T1.Continent ,  count(*) FROM CONTINENTS AS T1 JOIN COUNTRIES AS T2 ON T1.ContId  =  T2.Continent GROUP BY T1.ContId;",
+	"text": "For each continent, list its id, name, and how many countries it has?",
+	"id": 91
+}, {
+	"code": "SELECT count(*) FROM COUNTRIES;",
+	"text": "How many countries are listed?",
+	"id": 92
+}, {
+	"code": "SELECT count(*) FROM COUNTRIES;",
+	"text": "How many countries exist?",
+	"id": 93
+}, {
+	"code": "SELECT T1.FullName ,  T1.Id ,  count(*) FROM CAR_MAKERS AS T1 JOIN MODEL_LIST AS T2 ON T1.Id  =  T2.Maker GROUP BY T1.Id;",
+	"text": "How many models does each car maker produce? List maker full name, id and the number.",
+	"id": 94
+}, {
+	"code": "SELECT T1.FullName ,  T1.Id ,  count(*) FROM CAR_MAKERS AS T1 JOIN MODEL_LIST AS T2 ON T1.Id  =  T2.Maker GROUP BY T1.Id;",
+	"text": "What is the full name of each car maker, along with its id and how many models it produces?",
+	"id": 95
+}, {
+	"code": "SELECT T1.Model FROM CAR_NAMES AS T1 JOIN CARS_DATA AS T2 ON T1.MakeId  =  T2.Id ORDER BY T2.horsepower ASC LIMIT 1;",
+	"text": "Which model of the car has the minimum horsepower?",
+	"id": 96
+}, {
+	"code": "SELECT T1.Model FROM CAR_NAMES AS T1 JOIN CARS_DATA AS T2 ON T1.MakeId  =  T2.Id ORDER BY T2.horsepower ASC LIMIT 1;",
+	"text": "What is the model of the car with the smallest amount of horsepower?",
+	"id": 97
+}, {
+	"code": "SELECT T1.model FROM CAR_NAMES AS T1 JOIN CARS_DATA AS T2 ON T1.MakeId  =  T2.Id WHERE T2.Weight  <  (SELECT avg(Weight) FROM CARS_DATA)",
+	"text": "Find the model of the car whose weight is below the average weight.",
+	"id": 98
+}, {
+	"code": "SELECT T1.model FROM CAR_NAMES AS T1 JOIN CARS_DATA AS T2 ON T1.MakeId  =  T2.Id WHERE T2.Weight  <  (SELECT avg(Weight) FROM CARS_DATA)",
+	"text": "What is the model for the car with a weight smaller than the average?",
+	"id": 99
+}, {
+	"code": "SELECT DISTINCT T1.Maker FROM CAR_MAKERS AS T1 JOIN MODEL_LIST AS T2 ON T1.Id  =  T2.Maker JOIN CAR_NAMES AS T3 ON T2.model  =  T3.model JOIN CARS_DATA AS T4 ON T3.MakeId  =  T4.id WHERE T4.year  =  '1970';",
+	"text": "Find the name of the makers that produced some cars in the year of 1970?",
+	"id": 100
+}]

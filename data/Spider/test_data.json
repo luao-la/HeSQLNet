@@ -1,0 +1,401 @@
+[{
+	"code": "SELECT count(*) FROM club",
+	"text": "How many clubs are there?",
+	"id": 1
+}, {
+	"code": "SELECT count(*) FROM club",
+	"text": "Count the number of clubs.",
+	"id": 2
+}, {
+	"code": "SELECT Name FROM club ORDER BY Name ASC",
+	"text": "List the name of clubs in ascending alphabetical order.",
+	"id": 3
+}, {
+	"code": "SELECT Name FROM club ORDER BY Name ASC",
+	"text": "What are the names of clubs, ordered alphabetically?",
+	"id": 4
+}, {
+	"code": "SELECT Manager ,  Captain FROM club",
+	"text": "What are the managers and captains of clubs?",
+	"id": 5
+}, {
+	"code": "SELECT Manager ,  Captain FROM club",
+	"text": "Return the managers and captains of all clubs.",
+	"id": 6
+}, {
+	"code": "SELECT Name FROM club WHERE Manufacturer != \"Nike\"",
+	"text": "List the name of clubs whose manufacturer is not \"Nike\"",
+	"id": 7
+}, {
+	"code": "SELECT Name FROM club WHERE Manufacturer != \"Nike\"",
+	"text": "What are the names of clubs who do not have the manufacturer Nike?",
+	"id": 8
+}, {
+	"code": "SELECT Name FROM player ORDER BY Wins_count ASC",
+	"text": "What are the names of players in ascending order of wins count?",
+	"id": 9
+}, {
+	"code": "SELECT Name FROM player ORDER BY Wins_count ASC",
+	"text": "Return the names of players in order of count of wins, ascending.",
+	"id": 10
+}, {
+	"code": "SELECT Name FROM player ORDER BY Earnings DESC LIMIT 1",
+	"text": "What is the name of the player with the highest earnings?",
+	"id": 11
+}, {
+	"code": "SELECT Name FROM player ORDER BY Earnings DESC LIMIT 1",
+	"text": "Return the name of the player who earns the most money.",
+	"id": 12
+}, {
+	"code": "SELECT DISTINCT Country FROM player WHERE Earnings  >  1200000",
+	"text": "What are the distinct countries of players with earnings higher than 1200000?",
+	"id": 13
+}, {
+	"code": "SELECT DISTINCT Country FROM player WHERE Earnings  >  1200000",
+	"text": "From which countries are players who make more than 1200000 from?",
+	"id": 14
+}, {
+	"code": "SELECT Country FROM player WHERE Wins_count  >  2 ORDER BY Earnings DESC LIMIT 1",
+	"text": "What is the country of the player with the highest earnings among players that have more than 2 win counts?",
+	"id": 15
+}, {
+	"code": "SELECT Country FROM player WHERE Wins_count  >  2 ORDER BY Earnings DESC LIMIT 1",
+	"text": "Of players who have more than 2 wins, what is the country of the player who makes the most?",
+	"id": 16
+}, {
+	"code": "SELECT T2.Name ,  T1.Name FROM club AS T1 JOIN player AS T2 ON T1.Club_ID  =  T2.Club_ID",
+	"text": "Show names of players and names of clubs they are in.",
+	"id": 17
+}, {
+	"code": "SELECT T2.Name ,  T1.Name FROM club AS T1 JOIN player AS T2 ON T1.Club_ID  =  T2.Club_ID",
+	"text": "What are the names of players and the corresponding clubs that they are in?",
+	"id": 18
+}, {
+	"code": "SELECT T1.Name FROM club AS T1 JOIN player AS T2 ON T1.Club_ID  =  T2.Club_ID WHERE T2.Wins_count  >  2",
+	"text": "Show names of clubs that have players with more than 2 win counts.",
+	"id": 19
+}, {
+	"code": "SELECT T1.Name FROM club AS T1 JOIN player AS T2 ON T1.Club_ID  =  T2.Club_ID WHERE T2.Wins_count  >  2",
+	"text": "What are the names of clubs that have players who have won more than twice?",
+	"id": 20
+}, {
+	"code": "SELECT T2.Name FROM club AS T1 JOIN player AS T2 ON T1.Club_ID  =  T2.Club_ID WHERE T1.Manager  =  \"Sam Allardyce\"",
+	"text": "Show names of players from the club with manager \"Sam Allardyce\".",
+	"id": 21
+}, {
+	"code": "SELECT T2.Name FROM club AS T1 JOIN player AS T2 ON T1.Club_ID  =  T2.Club_ID WHERE T1.Manager  =  \"Sam Allardyce\"",
+	"text": "What are the names of players from the club managed by Sam Allardyce?",
+	"id": 22
+}, {
+	"code": "SELECT T1.Name FROM club AS T1 JOIN player AS T2 ON T1.Club_ID  =  T2.Club_ID GROUP BY T1.Club_ID ORDER BY avg(T2.Earnings) DESC",
+	"text": "Show names of clubs in descending order of average earnings of players belonging.",
+	"id": 23
+}, {
+	"code": "SELECT T1.Name FROM club AS T1 JOIN player AS T2 ON T1.Club_ID  =  T2.Club_ID GROUP BY T1.Club_ID ORDER BY avg(T2.Earnings) DESC",
+	"text": "What are the names of clubs, ordered descending by the average earnings of players within each?",
+	"id": 24
+}, {
+	"code": "SELECT Manufacturer ,  COUNT(*) FROM club GROUP BY Manufacturer",
+	"text": "Show different manufacturers and the number of clubs they are associated with.",
+	"id": 25
+}, {
+	"code": "SELECT Manufacturer ,  COUNT(*) FROM club GROUP BY Manufacturer",
+	"text": "How many clubs use each manufacturer?",
+	"id": 26
+}, {
+	"code": "SELECT Manufacturer FROM club GROUP BY Manufacturer ORDER BY COUNT(*) DESC LIMIT 1",
+	"text": "Please show the most common manufacturer of clubs.",
+	"id": 27
+}, {
+	"code": "SELECT Manufacturer FROM club GROUP BY Manufacturer ORDER BY COUNT(*) DESC LIMIT 1",
+	"text": "Which manufacturer is most common among clubs?",
+	"id": 28
+}, {
+	"code": "SELECT Manufacturer FROM club GROUP BY Manufacturer HAVING COUNT(*)  >  1",
+	"text": "List the manufacturers that are associated with more than one club.",
+	"id": 29
+}, {
+	"code": "SELECT Manufacturer FROM club GROUP BY Manufacturer HAVING COUNT(*)  >  1",
+	"text": "Which manufacturers work for more than 1 club?",
+	"id": 30
+}, {
+	"code": "SELECT Country FROM player GROUP BY Country HAVING COUNT(*)  >  1",
+	"text": "List the country that have more than one player.",
+	"id": 31
+}, {
+	"code": "SELECT Country FROM player GROUP BY Country HAVING COUNT(*)  >  1",
+	"text": "Which countries have produced more than one player?",
+	"id": 32
+}, {
+	"code": "SELECT Name FROM club WHERE Club_ID NOT IN (SELECT Club_ID FROM player)",
+	"text": "List the name of clubs that do not have players.",
+	"id": 33
+}, {
+	"code": "SELECT Name FROM club WHERE Club_ID NOT IN (SELECT Club_ID FROM player)",
+	"text": "What are the names of clubs that do not have any players?",
+	"id": 34
+}, {
+	"code": "SELECT Country FROM player WHERE Earnings  >  1400000 INTERSECT SELECT Country FROM player WHERE Earnings  <  1100000",
+	"text": "Show the country of players with earnings more than 1400000 and players with earnings less than 1100000.",
+	"id": 35
+}, {
+	"code": "SELECT Country FROM player WHERE Earnings  >  1400000 INTERSECT SELECT Country FROM player WHERE Earnings  <  1100000",
+	"text": "Which country has produced both players with earnings over 1400000 and players with earnings below 1100000?",
+	"id": 36
+}, {
+	"code": "SELECT COUNT (DISTINCT Country) FROM player",
+	"text": "What is the number of distinct countries of all players?",
+	"id": 37
+}, {
+	"code": "SELECT COUNT (DISTINCT Country) FROM player",
+	"text": "How many different countries are players from?",
+	"id": 38
+}, {
+	"code": "SELECT Earnings FROM player WHERE Country  =  \"Australia\" OR Country  =  \"Zimbabwe\"",
+	"text": "Show the earnings of players from country \"Australia\" or \"Zimbabwe\".",
+	"id": 39
+}, {
+	"code": "SELECT Earnings FROM player WHERE Country  =  \"Australia\" OR Country  =  \"Zimbabwe\"",
+	"text": "What are the earnings of players from either of the countries of Australia or Zimbabwe?",
+	"id": 40
+}, {
+	"code": "SELECT T1.customer_id ,  T1.customer_first_name ,  T1.customer_last_name FROM Customers AS T1 JOIN Orders AS T2 ON T1.customer_id  =  T2.customer_id GROUP BY T1.customer_id HAVING count(*)  >  2 INTERSECT SELECT T1.customer_id ,  T1.customer_first_name ,  T1.customer_last_name FROM Customers AS T1 JOIN Orders AS T2 ON T1.customer_id  =  T2.customer_id JOIN Order_items AS T3 ON T2.order_id  =  T3.order_id GROUP BY T1.customer_id HAVING count(*)  >= 3",
+	"text": "List the id, first name and last name of the customers who both have placed more than 2 orders and have bought at least 3 items.",
+	"id": 41
+}, {
+	"code": "SELECT T1.customer_id ,  T1.customer_first_name ,  T1.customer_last_name FROM Customers AS T1 JOIN Orders AS T2 ON T1.customer_id  =  T2.customer_id GROUP BY T1.customer_id HAVING count(*)  >  2 INTERSECT SELECT T1.customer_id ,  T1.customer_first_name ,  T1.customer_last_name FROM Customers AS T1 JOIN Orders AS T2 ON T1.customer_id  =  T2.customer_id JOIN Order_items AS T3 ON T2.order_id  =  T3.order_id GROUP BY T1.customer_id HAVING count(*)  >= 3",
+	"text": "What are the ids, first and last names of the customers who have ordered more than twice and have bought at least 3 items?",
+	"id": 42
+}, {
+	"code": "SELECT T1.order_id ,  T1.order_status_code ,  count(*) FROM Orders AS T1 JOIN Order_items AS T2 ON T1.order_id  =  T2.order_id GROUP BY T1.order_id",
+	"text": "For the orders with any produts, how many products does each orders contain ? List the order id, status and the number.",
+	"id": 43
+}, {
+	"code": "SELECT T1.order_id ,  T1.order_status_code ,  count(*) FROM Orders AS T1 JOIN Order_items AS T2 ON T1.order_id  =  T2.order_id GROUP BY T1.order_id",
+	"text": "For every order, how many products does it contain, and what are the orders' statuses and ids?",
+	"id": 44
+}, {
+	"code": "SELECT min(date_order_placed) FROM Orders UNION SELECT T1.date_order_placed FROM Orders AS T1 JOIN Order_items AS T2 ON T1.order_id  =  T2.order_id GROUP BY T1.order_id HAVING count(*)  >  1",
+	"text": "List the dates of the orders which were placed at the earliest time or have more than 1 items.",
+	"id": 45
+}, {
+	"code": "SELECT min(date_order_placed) FROM Orders UNION SELECT T1.date_order_placed FROM Orders AS T1 JOIN Order_items AS T2 ON T1.order_id  =  T2.order_id GROUP BY T1.order_id HAVING count(*)  >  1",
+	"text": "What are the dates of the earliest order and the dates of all orders with more than 1 item?",
+	"id": 46
+}, {
+	"code": "SELECT customer_first_name ,  customer_middle_initial ,  customer_last_name FROM Customers EXCEPT SELECT T1.customer_first_name ,  T1.customer_middle_initial ,  T1.customer_last_name FROM Customers AS T1 JOIN Orders AS T2 ON T1.customer_id  =  T2.customer_id",
+	"text": "Which customers did not make any orders? List the first name, middle initial and last name.",
+	"id": 47
+}, {
+	"code": "SELECT customer_first_name ,  customer_middle_initial ,  customer_last_name FROM Customers EXCEPT SELECT T1.customer_first_name ,  T1.customer_middle_initial ,  T1.customer_last_name FROM Customers AS T1 JOIN Orders AS T2 ON T1.customer_id  =  T2.customer_id",
+	"text": "WHat are the first and last names, and middle initials of all customers who did not make any orders?",
+	"id": 48
+}, {
+	"code": "SELECT product_id ,  product_name ,  product_price ,  product_color FROM Products EXCEPT SELECT T1.product_id ,  T1.product_name ,  T1.product_price ,  T1.product_color FROM Products AS T1 JOIN Order_items AS T2 ON T1.product_id  =  T2.product_id JOIN Orders AS T3 ON T2.order_id  =  T3.order_id GROUP BY T1.product_id HAVING count(*)  >=  2",
+	"text": "What are the id, name, price and color of the products which have not been ordered for at least twice?",
+	"id": 49
+}, {
+	"code": "select t1.product_id ,  t1.product_name ,  t1.product_price ,  t1.product_color from products as t1 join order_items as t2 on t1.product_id  =  t2.product_id join orders as t3 on t2.order_id  =  t3.order_id group by t1.product_id having count(*) < 2",
+	"text": "What are the ids , names , prices , and colors of all products that have been listed in less than two orders ?",
+	"id": 50
+}, {
+	"code": "SELECT T1.order_id ,  T1.date_order_placed FROM Orders AS T1 JOIN Order_items AS T2 ON T1.order_id  =  T2.order_id GROUP BY T1.order_id HAVING count(*)  >=  2",
+	"text": "Which orders have at least 2 products on it? List the order id and date.",
+	"id": 51
+}, {
+	"code": "SELECT T1.order_id ,  T1.date_order_placed FROM Orders AS T1 JOIN Order_items AS T2 ON T1.order_id  =  T2.order_id GROUP BY T1.order_id HAVING count(*)  >=  2",
+	"text": "What are the ids and dates of the orders with at least two products?",
+	"id": 52
+}, {
+	"code": "SELECT T1.product_id ,  T1.product_name ,  T1.product_price FROM Products AS T1 JOIN Order_items AS T2 ON T1.product_id  =  T2.product_id GROUP BY T1.product_id ORDER BY count(*) DESC LIMIT 1",
+	"text": "Which product are listed in orders most frequently? List the id, product name and price.",
+	"id": 53
+}, {
+	"code": "SELECT T1.product_id ,  T1.product_name ,  T1.product_price FROM Products AS T1 JOIN Order_items AS T2 ON T1.product_id  =  T2.product_id GROUP BY T1.product_id ORDER BY count(*) DESC LIMIT 1",
+	"text": "What are the ids, names, and prices of all products that are ordered most frequently?",
+	"id": 54
+}, {
+	"code": "SELECT T1.order_id ,  sum(T2.product_price) FROM Order_items AS T1 JOIN Products AS T2 ON T1.product_id  =  T2.product_id GROUP BY T1.order_id ORDER BY sum(T2.product_price) ASC LIMIT 1",
+	"text": "Which order have the least sum of the product prices. List the order id and sum.",
+	"id": 55
+}, {
+	"code": "select t1.order_id ,  sum(t2.product_price) from order_items as t1 join products as t2 on t1.product_id  =  t2.product_id group by t1.order_id order by sum(t2.product_price) asc limit 1",
+	"text": "What is the order that total cost the least , and how much is the total cost ?",
+	"id": 56
+}, {
+	"code": "SELECT Payment_method_code FROM Customer_Payment_Methods GROUP BY Payment_method_code ORDER BY count(*) DESC LIMIT 1",
+	"text": "What is the most popular payment method?",
+	"id": 57
+}, {
+	"code": "SELECT Payment_method_code FROM Customer_Payment_Methods GROUP BY Payment_method_code ORDER BY count(*) DESC LIMIT 1",
+	"text": "What is the payment method that most customers use?",
+	"id": 58
+}, {
+	"code": "SELECT T1.gender_code ,  count(*) FROM Customers AS T1 JOIN Orders AS T2 ON T1.customer_id  =  T2.customer_id JOIN Order_items AS T3 ON T2.order_id  =  T3.order_id GROUP BY T1.gender_code",
+	"text": "How many number of products does each gender of customers buy? List the gender and the number",
+	"id": 59
+}, {
+	"code": "SELECT T1.gender_code ,  count(*) FROM Customers AS T1 JOIN Orders AS T2 ON T1.customer_id  =  T2.customer_id JOIN Order_items AS T3 ON T2.order_id  =  T3.order_id GROUP BY T1.gender_code",
+	"text": "How many products does each gender buy?",
+	"id": 60
+}, {
+	"code": "SELECT T1.gender_code ,  count(*) FROM Customers AS T1 JOIN Orders AS T2 ON T1.customer_id  =  T2.customer_id GROUP BY T1.gender_code",
+	"text": "How many orders has each gender of customers placed?",
+	"id": 61
+}, {
+	"code": "SELECT T1.gender_code ,  count(*) FROM Customers AS T1 JOIN Orders AS T2 ON T1.customer_id  =  T2.customer_id GROUP BY T1.gender_code",
+	"text": "How many orders has each gender placed?",
+	"id": 62
+}, {
+	"code": "SELECT T1.customer_first_name ,  T1.customer_middle_initial ,  T1.customer_last_name ,  T2.Payment_method_code FROM Customers AS T1 JOIN Customer_Payment_Methods AS T2 ON T1.customer_id  =  T2.customer_id",
+	"text": "List the customers' first name, middle initial, last name and payment methods.",
+	"id": 63
+}, {
+	"code": "SELECT T1.customer_first_name ,  T1.customer_middle_initial ,  T1.customer_last_name ,  T2.Payment_method_code FROM Customers AS T1 JOIN Customer_Payment_Methods AS T2 ON T1.customer_id  =  T2.customer_id",
+	"text": "What are the first names, middle initials, last names, and payment methods of all customers?",
+	"id": 64
+}, {
+	"code": "SELECT T1.invoice_status_code ,  T1.invoice_date ,  T2.shipment_date FROM Invoices AS T1 JOIN Shipments AS T2 ON T1.invoice_number  =  T2.invoice_number",
+	"text": "List the invoices' status, date and the date of shipment.",
+	"id": 65
+}, {
+	"code": "SELECT T1.invoice_status_code ,  T1.invoice_date ,  T2.shipment_date FROM Invoices AS T1 JOIN Shipments AS T2 ON T1.invoice_number  =  T2.invoice_number",
+	"text": "What are the statuses, dates, and shipment dates for all invoices?",
+	"id": 66
+}, {
+	"code": "SELECT T1.product_name ,  T4.shipment_date FROM Products AS T1 JOIN Order_items AS T2 ON T1.product_id  =  T2.product_id JOIN Shipment_Items AS T3 ON T2.order_item_id  =  T3.order_item_id JOIN Shipments AS T4 ON T3.shipment_id  =  T4.shipment_id",
+	"text": "List the names of the products being shipped and the corresponding shipment date.",
+	"id": 67
+}, {
+	"code": "SELECT T1.product_name ,  T4.shipment_date FROM Products AS T1 JOIN Order_items AS T2 ON T1.product_id  =  T2.product_id JOIN Shipment_Items AS T3 ON T2.order_item_id  =  T3.order_item_id JOIN Shipments AS T4 ON T3.shipment_id  =  T4.shipment_id",
+	"text": "What are the names of the products tht have been shipped, and on what days were they shipped?",
+	"id": 68
+}, {
+	"code": "SELECT T1.order_item_status_code ,  T3.shipment_tracking_number FROM Order_items AS T1 JOIN Shipment_Items AS T2 ON T1.order_item_id  =  T2.order_item_id JOIN Shipments AS T3 ON T2.shipment_id  =  T3.shipment_id",
+	"text": "What is the status code of the items being ordered and shipped and its corresponding shipment tracking number?",
+	"id": 69
+}, {
+	"code": "SELECT T1.order_item_status_code ,  T3.shipment_tracking_number FROM Order_items AS T1 JOIN Shipment_Items AS T2 ON T1.order_item_id  =  T2.order_item_id JOIN Shipments AS T3 ON T2.shipment_id  =  T3.shipment_id",
+	"text": "What is the status code of the items have been ordered and shipped, and also what are their shipment tracking numbers?",
+	"id": 70
+}, {
+	"code": "SELECT T1.product_name ,  T1.product_color FROM Products AS T1 JOIN Order_items AS T2 ON T1.product_id  =  T2.product_id JOIN Shipment_Items AS T3 ON T2.order_item_id  =  T3.order_item_id JOIN Shipments AS T4 ON T3.shipment_id  =  T4.shipment_id",
+	"text": "What is the product name and the color of the ordered items which have been shipped?",
+	"id": 71
+}, {
+	"code": "SELECT T1.product_name ,  T1.product_color FROM Products AS T1 JOIN Order_items AS T2 ON T1.product_id  =  T2.product_id JOIN Shipment_Items AS T3 ON T2.order_item_id  =  T3.order_item_id JOIN Shipments AS T4 ON T3.shipment_id  =  T4.shipment_id",
+	"text": "What are the names and colors of all products that have been shipped?",
+	"id": 72
+}, {
+	"code": "SELECT DISTINCT T1.product_name ,  T1.product_price ,  T1.product_description FROM Products AS T1 JOIN Order_items AS T2 ON T1.product_id  =  T2.product_id JOIN Orders AS T3 ON T2.order_id  =  T3.order_id JOIN Customers AS T4 ON T3.customer_id  =  T4.customer_id WHERE T4.gender_code  =  'Female'",
+	"text": "List all the distinct product names, price and descriptions which are bought by female customers.",
+	"id": 73
+}, {
+	"code": "SELECT DISTINCT T1.product_name ,  T1.product_price ,  T1.product_description FROM Products AS T1 JOIN Order_items AS T2 ON T1.product_id  =  T2.product_id JOIN Orders AS T3 ON T2.order_id  =  T3.order_id JOIN Customers AS T4 ON T3.customer_id  =  T4.customer_id WHERE T4.gender_code  =  'Female'",
+	"text": "What are the different names, prices, and descriptions for all products bought by female customers?",
+	"id": 74
+}, {
+	"code": "SELECT invoice_status_code FROM Invoices WHERE invoice_number NOT IN ( SELECT invoice_number FROM Shipments )",
+	"text": "What are invoices status of all the orders which have not been shipped?",
+	"id": 75
+}, {
+	"code": "SELECT invoice_status_code FROM Invoices WHERE invoice_number NOT IN ( SELECT invoice_number FROM Shipments )",
+	"text": "What are the invoice statuses for all orderes that have not been shipped out yet?",
+	"id": 76
+}, {
+	"code": "select t1.order_id ,  t1.date_order_placed ,  sum(t3.product_price) from orders as t1 join order_items as t2 on t1.order_id  =  t2.order_id join products as t3 on t2.product_id  =  t3.product_id group by t1.order_id",
+	"text": "What are the total cost of all the orders ? List the order id , date , and total cost .",
+	"id": 77
+}, {
+	"code": "SELECT T1.order_id ,  T1.date_order_placed ,  sum(T3.product_price) FROM Orders AS T1 JOIN Order_items AS T2 ON T1.order_id  =  T2.order_id JOIN Products AS T3 ON T2.product_id  =  T3.product_id GROUP BY T1.order_id",
+	"text": "For each order, what is its id, date, and total amount paid?",
+	"id": 78
+}, {
+	"code": "SELECT count(DISTINCT customer_id) FROM Orders",
+	"text": "How many customers have placed any order?",
+	"id": 79
+}, {
+	"code": "SELECT count(DISTINCT customer_id) FROM Orders",
+	"text": "How many different customers have ordered things?",
+	"id": 80
+}, {
+	"code": "SELECT count(DISTINCT order_item_status_code) FROM Order_items",
+	"text": "How many item states are there in the orders?",
+	"id": 81
+}, {
+	"code": "SELECT count(DISTINCT order_item_status_code) FROM Order_items",
+	"text": "How many different item status codes are there listed in ordered items?",
+	"id": 82
+}, {
+	"code": "SELECT count(DISTINCT Payment_method_code) FROM Customer_Payment_Methods",
+	"text": "How many different payment methods are there?",
+	"id": 83
+}, {
+	"code": "SELECT count(DISTINCT Payment_method_code) FROM Customer_Payment_Methods",
+	"text": "How many different payment methods can customers choose from?",
+	"id": 84
+}, {
+	"code": "SELECT login_name ,  login_password FROM Customers WHERE phone_number LIKE '+12%'",
+	"text": "What are the login names and passwords of the customers whose phone number have the prefix '+12'?",
+	"id": 85
+}, {
+	"code": "SELECT login_name ,  login_password FROM Customers WHERE phone_number LIKE '+12%'",
+	"text": "What are the usernames and passwords of all customers whose phone number starts with '+12'?",
+	"id": 86
+}, {
+	"code": "SELECT product_size FROM Products WHERE product_name LIKE '%Dell%'",
+	"text": "What are the product sizes of the products whose name has the substring 'Dell'?",
+	"id": 87
+}, {
+	"code": "SELECT product_size FROM Products WHERE product_name LIKE '%Dell%'",
+	"text": "What are the sizes of all products whose name includes the word 'Dell'?",
+	"id": 88
+}, {
+	"code": "SELECT product_price ,  product_size FROM Products WHERE product_price  >  ( SELECT avg(product_price) FROM Products )",
+	"text": "What are the product price and the product size of the products whose price is above average?",
+	"id": 89
+}, {
+	"code": "SELECT product_price ,  product_size FROM Products WHERE product_price  >  ( SELECT avg(product_price) FROM Products )",
+	"text": "What are the prices and sizes of all products whose price is above the mean?",
+	"id": 90
+}, {
+	"code": "SELECT count(*) FROM Products WHERE product_id NOT IN ( SELECT product_id FROM Order_items )",
+	"text": "How many kinds of products have not been sold?",
+	"id": 91
+}, {
+	"code": "SELECT count(*) FROM Products WHERE product_id NOT IN ( SELECT product_id FROM Order_items )",
+	"text": "What is the number of products that have not been ordered yet?",
+	"id": 92
+}, {
+	"code": "SELECT count(*) FROM Customers WHERE customer_id NOT IN ( SELECT customer_id FROM Customer_Payment_Methods )",
+	"text": "How many customers do not have any payment method?",
+	"id": 93
+}, {
+	"code": "SELECT count(*) FROM Customers WHERE customer_id NOT IN ( SELECT customer_id FROM Customer_Payment_Methods )",
+	"text": "How many customers do not have a listed payment method?",
+	"id": 94
+}, {
+	"code": "SELECT order_status_code ,  date_order_placed FROM Orders",
+	"text": "What are all the order status and all the dates of orders?",
+	"id": 95
+}, {
+	"code": "SELECT order_status_code ,  date_order_placed FROM Orders",
+	"text": "What are the status codes and dates placed for all of the orders?",
+	"id": 96
+}, {
+	"code": "SELECT address_line_1 ,  town_city ,  county FROM Customers WHERE Country  =  'USA'",
+	"text": "List the address, town and county information of the customers who live in the USA.",
+	"id": 97
+}, {
+	"code": "SELECT address_line_1 ,  town_city ,  county FROM Customers WHERE Country  =  'USA'",
+	"text": "What are the addresses, towns, and county information for all customers who live in the United States?",
+	"id": 98
+}, {
+	"code": "SELECT T1.customer_first_name ,  T4.product_name FROM Customers AS T1 JOIN Orders AS T2 ON T1.customer_id  =  T2.customer_id JOIN Order_items AS T3 ON T2.order_id  =  T3.order_id JOIN Products AS T4 ON T3.product_id  =  T4.product_id",
+	"text": "List all the pairs of buyer first names and product names.",
+	"id": 99
+}, {
+	"code": "SELECT T1.customer_first_name ,  T4.product_name FROM Customers AS T1 JOIN Orders AS T2 ON T1.customer_id  =  T2.customer_id JOIN Order_items AS T3 ON T2.order_id  =  T3.order_id JOIN Products AS T4 ON T3.product_id  =  T4.product_id",
+	"text": "What are the first names of all buyers and what products did they buy? List them in pairs.",
+	"id": 100
+}]
