@@ -10,7 +10,7 @@ WikiSQL: [WikiSQL](https://github.com/salesforce/WikiSQL)
 
 Spider: [Spider](https://github.com/taoyds/spider)
 
-SpiderCogent: [Google Drive](https://drive.google.com/drive/folders/1xDgnK700hvQIiuniJu05Yqq-F8vEfEKt?usp=drive_link)
+SpiderComGen: [Google Drive](https://drive.google.com/drive/folders/1xDgnK700hvQIiuniJu05Yqq-F8vEfEKt?usp=drive_link)
 
 # Experiment
 1. Step into the directory `src_code`:
